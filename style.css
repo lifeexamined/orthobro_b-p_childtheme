@@ -39,7 +39,7 @@ Text Domain: orthobro_b-p_childtheme
  ========================================*/
 
  .header-layout-two {
-    padding: 0;
+    padding: 0 0 10px !important;
     display: block;
 }
 
@@ -423,11 +423,25 @@ Text Domain: orthobro_b-p_childtheme
  Color Change
  =====================================*/
 
-.menu-item > a {
+.menu-item > a, li > a {
 	color: rgb(175, 140, 58) !important;
 }
 
+ #crumbs .current a, .posted-on > a > time, .site-info > a, .site-info > span > a  {
 
+    color: rgb(175, 140, 58) !important;
+
+}
+
+#crumbs {
+    color: #650;
+}
+
+/* .posted-on > a > time, .site-info > a, .site-info > a > a {
+
+    color: rgb(175, 140, 58) !important;
+
+} */
 
 a:hover{
 	color: #000 !important;
@@ -458,9 +472,23 @@ a:hover{
      justify-content: center;
  }
 
+ .breadcrumb-wrapper {
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+ }
+
+ .breadcrumb-wrapper > .container {
+    width: 832px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start !important;
+}
+
  .single-page-title {
      font-size: 2em;
      margin: 0;
+     padding: 0.5em;
  }
 
  .page-content, .entry-content, .entry-summary {
@@ -472,6 +500,11 @@ a:hover{
 
  }
 
+ ul {
+     padding: 0;
+     margin: 0;
+ }
+ 
  /*======================================
  Post Grid
  =====================================*/
@@ -505,5 +538,53 @@ a:hover{
     color: white;
     font-size: 1em;
     font-weight: bold;
+}
+
+ /*======================================
+ Search Form
+ =====================================*/
+.search-form-holder .search-form input[type="search"] {
+    padding: 0;
+    line-height: 0;
+    width:90%;
+}
+
+.search-form-holder .search-form {
+    padding: 10px 15px;
+    
+}
+
+ /*======================================
+ Responsive Features
+ =====================================*/
+ @media only screen and (max-width: 1024px) {
+
+ .mobile-header .mobile-site-header .site-branding {
+
+    width: 216px !important;
+     
+ }
+ 
+}
+
+ @media only screen and (max-width: 600px) {
+
+ .mobile-site-header {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+ }
+
+.mobile-header .mobile-site-header .site-branding .site-title {
+    width: 216px !important;
+    line-height: 0.9;
+    font-size:2.2em;
+    text-align: left;
+    /* margin-left: 24px; */
+}
+
+.recommended-post > .container {
+    flex-direction: column;
+}
 
 }
