@@ -30,7 +30,8 @@ Text Domain: orthobro_b-p_childtheme
 }
 
 .site-header .site-branding .site-title{
-	font-size: 3em;
+    font-size: 2em;
+    font-family: 'Libre Baskerville', serif !important;
 }
 
 /*========================================
@@ -67,7 +68,8 @@ Text Domain: orthobro_b-p_childtheme
 
 .header-layout-two .header-b {
     background: #fff;
-    padding: 18px 0 17px;
+    /* padding: 18px 0 17px; */
+    padding: 0;
 }
 
 .header-layout-two .main-navigation {
@@ -105,7 +107,8 @@ Text Domain: orthobro_b-p_childtheme
 
 .banner-layout-two .item {
     position: relative;
-    height: 650px;
+    /* height: 650px; */
+    height: 400px;
     background: var(--primary-color);
     border-radius: 12px;
 }
@@ -296,7 +299,7 @@ Text Domain: orthobro_b-p_childtheme
 .blog #primary .post .entry-header .entry-title a,
 .banner-layout-two .text-holder .entry-title a,
 .banner-slider .item .text-holder .entry-title a{
-    background-image: linear-gradient(180deg, transparent 95%, var(--primary-color) 0);
+    background-image: linear-gradient(180deg, transparent 95%, var(#DDC07A) 0);
     background-size: 0% 100%;
     background-repeat: no-repeat;
     -webkit-transition: background-size 0.4s ease;
@@ -420,9 +423,11 @@ Text Domain: orthobro_b-p_childtheme
  Color Change
  =====================================*/
 
-a {
+.menu-item > a {
 	color: rgb(175, 140, 58) !important;
 }
+
+
 
 a:hover{
 	color: #000 !important;
@@ -434,4 +439,71 @@ a:hover{
 
 .site-header .site-branding .site-title a:hover{
 	color: rgb(175, 140, 58) !important;
+}
+
+/*======================================
+ Content Area
+ =====================================*/
+ .blog #primary .post .entry-header .category a, .widget .widget-title::after, .widget_bttk_custom_categories ul li a:hover .post-count, .widget_blossomtheme_companion_cta_widget .text-holder .button-wrap .btn-cta, .widget_blossomtheme_featured_page_widget .text-holder .btn-readmore:hover, .widget_bttk_icon_text_widget .text-holder .btn-readmore:hover, .widget_bttk_image_text_widget ul li .btn-readmore:hover, .newsletter-section, .single .post-entry-header .category a, .single #primary .post .holder .meta-info .entry-meta .byline::after, .recommended-post .post .entry-header .category a, .search #primary .search-post .entry-header .category a, .archive #primary .post .entry-header .category a, .banner-slider .item .text-holder .category a, .back-to-top, .single-header .progress-bar, .widget_bttk_author_bio .readmore:hover, .banner-layout-two .text-holder .category a, .banner-layout-two .text-holder .category span, .banner-layout-two .item, .banner .banner-caption .banner-link:hover, .banner-slider .item {
+    background: rgb(175, 140, 58)!important;
+}
+
+ .site-content {
+    padding: 0;
+ }
+
+ .container {
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+ }
+
+ .single-page-title {
+     font-size: 2em;
+     margin: 0;
+ }
+
+ .page-content, .entry-content, .entry-summary {
+     margin: 0;
+ }
+
+ .entry-content > h2 {
+     margin:0.5em;
+
+ }
+
+ /*======================================
+ Post Grid
+ =====================================*/
+ .post-grid-double-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: stretch;
+    flex-flow: row wrap;
+    height: (1664px / 3);
+ }
+
+ .post-grid-wrapper {
+    width: calc(100% / 3);
+ }
+
+ .post-grid {
+     width:100%;
+     padding-top:100%;
+     position: relative;
+     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    }
+
+ .post-grid > a {
+    position: absolute;
+    bottom:10%;
+    font-family: var(--primary-font);
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+
 }

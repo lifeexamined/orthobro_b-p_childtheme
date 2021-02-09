@@ -770,3 +770,27 @@ function blossom_pin_footer_bottom(){ ?>
     </div>
     <?php
 }
+
+// Header Widget
+
+function orthobro_widgets_init(){    
+    $sidebars = array(
+        'header-one'=> array(
+            'name'        => __( 'Header', 'blossom-pin' ),
+            'id'          => 'header-one', 
+            'description' => __( 'Add header one widgets here.', 'blossom-pin' ),
+        ),
+    );
+    
+    foreach( $sidebars as $sidebar ){
+        register_sidebar( array(
+    		'name'          => 'Header Widget Area',
+    		'id'            => 'header-one',
+    		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+    		'after_widget'  => '</section>',
+    		'before_title'  => '<h2 class="widget-title" itemprop="name">',
+    		'after_title'   => '</h2>',
+    	) );
+    }
+}
+add_action( 'widgets_init', 'orthobro_widgets_init' );
