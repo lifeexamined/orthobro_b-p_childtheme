@@ -521,6 +521,10 @@ a:hover{
     width: calc(100% / 3);
  }
 
+ .post-grid-wrapper > a {
+    width: 100%;
+ }
+
  .post-grid {
      width:100%;
      padding-top:100%;
@@ -531,14 +535,16 @@ a:hover{
     align-items: center;
     }
 
- .post-grid > a {
+ /* .news > a {
     position: absolute;
     bottom:10%;
     font-family: var(--primary-font);
     color: white;
     font-size: 1em;
     font-weight: bold;
-}
+    width: 100%;
+    height: 100%;
+} */
 
  /*======================================
  Search Form
@@ -601,6 +607,17 @@ a:hover{
 }
 
  /*======================================
+ Post Styles
+ =====================================*/
+.centered #primary {
+    margin-top: 1em;
+}
+
+.single.centered .post-entry-header {
+    margin: 0px auto 0px;
+}
+
+ /*======================================
  Cool Cards
  =====================================*/
 .abs,
@@ -655,39 +672,14 @@ h2 strong,
 h2 span {
   vertical-align: middle;
 }
-body {
+/* body {
   background: #24282f;
   font-family: 'Alegreya Sans';
-}
+} */
 .wrapper {
   padding: 15px;
 }
-/* h2 {
-  padding: 10px;
-  padding-left: 25px;
-  color: #ccc;
-  margin: 0;
-}
-h2 strong {
-  z-index: 2;
-  background: #24282f;
-  padding: 4px 8px;
-}
-h2 span {
-  font-size: 0.7em;
-  color: #aaa;
-  margin-left: 10px;
-}
-h2:after {
-  content: '';
-  z-index: 1;
-  bottom: 50%;
-  margin-bottom: -2px;
-  height: 2px;
-  left: 0;
-  right: 0;
-  background: #373d47;
-} */
+
 .cards,
 .news {
   flex-flow: row wrap;
@@ -704,10 +696,15 @@ h2:after {
   transform: translateZ(0);
   transition: 0.3s;
 }
-.cards .card img,
+/* .cards .card img,
 .news .card img {
   width: 100%;
   min-height: 100%;
+} */
+.post-grid{
+  width: 100%;
+  min-height: 100%;
+  background-size:cover !important;
 }
 .cards .card figcaption,
 .news .card figcaption {
@@ -764,13 +761,11 @@ h2:after {
 }
 .news .article {
   overflow: hidden;
-  /* width: 350px; */
-  width: calc(832px / 3);
-  height: 235px;
+  width: 100%;
+  /* height: 100%; */
   margin: 0;
-  /* margin: 20px; */
 }
-.news .article img {
+.post-grid {
   width: 100%;
   min-height: 100%;
   transition: 0.2s;
@@ -796,9 +791,9 @@ h2:after {
   margin-bottom: 0;
   font-weight: bold;
 }
-.news .article:hover img,
-.news .article:focus img,
-.news .article:active img {
+.news .article:hover div,
+.news .article:focus div,
+.news .article:active div {
   filter: blur(3px);
   transform: scale(1.09);
 }

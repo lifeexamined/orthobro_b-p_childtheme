@@ -794,3 +794,13 @@ function orthobro_widgets_init(){
     }
 }
 add_action( 'widgets_init', 'orthobro_widgets_init' );
+
+/**
+ * Displays an optional post thumbnail.
+ *
+ * Wraps the post thumbnail in an anchor element on index views, or a div
+ * element when on single views.
+ */
+add_image_size( 'post-image-custom', 627, 250, array( 'top', 'center') ); //300 pixels wide (and unlimited height)
+
+require get_template_directory() . '/inc/template-functions.php';

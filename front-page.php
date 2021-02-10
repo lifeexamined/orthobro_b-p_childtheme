@@ -32,11 +32,18 @@ get_header();
 		// 	 apply_filters( 'the_excerpt', $recent['post_excerpt'], $recent['ID'] ),
 
 		//  );
-		 printf( '<div class="news"><a href="%1$s"><figure class="article"><img src="%3$s" /><figcaption><h3>%2$s</h3><p>%4$s</p></figcaption></figure></a></div>',
-		 esc_url( get_permalink( $recent['ID'] ) ),
-		 apply_filters( 'the_title', $recent['post_title'], $recent['ID'] ),
-		 esc_url( get_the_post_thumbnail_url($recent['ID']) ),
-		 apply_filters( 'the_description', $recent['post_description'], $recent['ID'] )
+
+		//  printf( '<div class="news"><div class="post-grid" style="background: url(\'%3$s\');"></div><a href="%1$s"><figure class="article"><figcaption><h3>%2$s</h3><p>%4$s</p></figcaption></figure></a></div>',
+		//  esc_url( get_permalink( $recent['ID'] ) ),
+		//  apply_filters( 'the_title', $recent['post_title'], $recent['ID'] ),
+		//  esc_url( get_the_post_thumbnail_url($recent['ID']) ),
+		//  apply_filters( 'the_description', $recent['post_description'], $recent['ID'] )
+
+		printf( '<div class="news post-grid-wrapper"><a href="%1$s"><figure class="article"><div class="post-grid" style="background: url(\'%3$s\');"></div><figcaption><h3>%2$s</h3><p>%4$s</p></figcaption></figure></a></div>',
+		esc_url( get_permalink( $recent['ID'] ) ),
+		apply_filters( 'the_title', $recent['post_title'], $recent['ID'] ),
+		esc_url( get_the_post_thumbnail_url($recent['ID']) ),
+		apply_filters( 'the_content', $recent['post_content'], $recent['ID'] )
 	 );
     }
 ?>
