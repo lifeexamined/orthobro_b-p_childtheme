@@ -515,6 +515,7 @@ a:hover{
     align-items: stretch;
     flex-flow: row wrap;
     height: (1664px / 3);
+    background-color: black;
  }
 
  .post-grid-wrapper {
@@ -616,6 +617,10 @@ a:hover{
 .single.centered .post-entry-header {
     margin: 0px auto 0px;
 }
+
+/* .post-thumbnail img {
+    width: 100% !important;
+} */
 
  /*======================================
  Cool Cards
