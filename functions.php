@@ -770,3 +770,74 @@ function blossom_pin_footer_bottom(){ ?>
     </div>
     <?php
 }
+
+// Header Widget
+
+function orthobro_widgets_init(){    
+    $sidebars = array(
+        'header-one'=> array(
+            'name'        => __( 'Header', 'blossom-pin' ),
+            'id'          => 'header-one', 
+            'description' => __( 'Add header one widgets here.', 'blossom-pin' ),
+        ),
+    );
+    
+    foreach( $sidebars as $sidebar ){
+        register_sidebar( array(
+    		'name'          => 'Header Widget Area',
+    		'id'            => 'header-one',
+    		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+    		'after_widget'  => '</section>',
+    		'before_title'  => '<h2 class="widget-title" itemprop="name">',
+    		'after_title'   => '</h2>',
+    	) );
+    }
+}
+add_action( 'widgets_init', 'orthobro_widgets_init' );
+
+/**
+ * Displays an optional post thumbnail.
+ *
+ * Wraps the post thumbnail in an anchor element on index views, or a div
+ * element when on single views.
+ */
+add_image_size( 'post-image-custom', 627, 250, array( 'top', 'center') ); //300 pixels wide (and unlimited height)
+
+// require get_template_directory() . '/inc/template-functions.php';
+
+function blossom_pin_post_thumbnail() {
+    global $wp_query;
+    $image_size  = 'thumbnail';
+    $ed_featured = get_theme_mod( 'ed_featured_image', true );
+    
+    if( !( is_archive() || is_search() )  && !is_singular() ) : ?>
+        <div class="holder">
+            <div class="top">
+    <?php endif;
+
+    if( is_home() ){        
+        if( has_post_thumbnail() ){                        
+            echo '<a href="' . esc_url( get_permalink() ) . '" class="post-thumbnail">';
+            the_post_thumbnail( 'post-image-custom', array( 'itemprop' => 'image' ) );    
+            echo '</a>';
+        }       
+    }elseif( is_archive() || is_search() ){
+        if( has_post_thumbnail() ){
+            echo '<div class="post-thumbnail"><a href="' . esc_url( get_permalink() ) . '" class="post-thumbnail">';
+            the_post_thumbnail( 'blossom-pin-archive', array( 'itemprop' => 'image' ) );    
+            echo '</a></div>';
+        }
+    }elseif( is_singular() ){
+        if( is_single() ){
+            if( $ed_featured ) {
+                echo '<div class="post-thumbnail">';
+                the_post_thumbnail( 'post-image-custom', array( 'itemprop' => 'image' ) );
+                echo '</div>';
+            }
+        }else{
+            echo '<div class="post-thumbnail">';
+            the_post_thumbnail( 'post-image-custom', array( 'itemprop' => 'image' ) );
+            echo '</div>';
+        }
+    }
+}
