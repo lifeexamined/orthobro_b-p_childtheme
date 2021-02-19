@@ -780,12 +780,25 @@ function orthobro_widgets_init(){
             'id'          => 'header-one', 
             'description' => __( 'Add header one widgets here.', 'blossom-pin' ),
         ),
+        'header-two'=> array(
+            'name'        => __( 'Header', 'blossom-pin' ),
+            'id'          => 'header-two', 
+            'description' => __( 'Add header two widgets here.', 'blossom-pin' ),
+        )
     );
     
     foreach( $sidebars as $sidebar ){
         register_sidebar( array(
     		'name'          => 'Header Widget Area',
     		'id'            => 'header-one',
+    		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+    		'after_widget'  => '</section>',
+    		'before_title'  => '<h2 class="widget-title" itemprop="name">',
+    		'after_title'   => '</h2>',
+        ) );
+        register_sidebar( array(
+    		'name'          => 'Header Widget Area 2',
+    		'id'            => 'header-two',
     		'before_widget' => '<section id="%1$s" class="widget %2$s">',
     		'after_widget'  => '</section>',
     		'before_title'  => '<h2 class="widget-title" itemprop="name">',
@@ -841,3 +854,11 @@ function blossom_pin_post_thumbnail() {
         }
     }
 }
+
+/**
+ * Filter the except length to 100 words.
+ *
+ */
+add_filter( 'excerpt_length', function($length) {
+    return 100;
+} );

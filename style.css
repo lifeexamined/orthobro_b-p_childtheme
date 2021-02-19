@@ -546,6 +546,14 @@ a:hover{
     width: 100%;
     height: 100%;
 } */
+	
+.wp-block-latest-posts > li {
+	margin-bottom:2em;
+}
+
+.type-page > div > img {
+	width: 100%;
+}
 
  /*======================================
  Search Form
