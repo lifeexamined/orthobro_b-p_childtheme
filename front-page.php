@@ -72,29 +72,35 @@ endif;
 		// apply_filters( 'the_title', $post['post_title'], $post['ID'] ),
 		// esc_url( get_the_post_thumbnail_url($post['ID']) ),
 		// apply_filters( 'the_excerpt', $post['post_excerpt'], $post['ID'] )
+
+		wp_reset_postdata();
+
 ?>
 
 </div>
 
-		<main id="main" class="site-main">
+<?php if ( is_active_sidebar( 'header-two' ) ) : ?>
+	<article class="page"><div class="entry-content"><h2><?php the_title(); ?></h2></div></article>
+	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
+		<?php dynamic_sidebar( 'header-two' ); ?>
+	</div><!-- #primary-sidebar -->
+<?php endif; ?>
 
-			<?php
+		<!-- <main id="main" class="site-main">
+
+			php
 			while ( have_posts() ) : the_post();
 
 				get_template_part( 'template-parts/content', 'page' );
 
-				/**
-                 * Comment Template
-                 * 
-                 * @hooked blossom_pin_comment
-                */
+
                 do_action( 'blossom_pin_after_page_content' );
 
-			endwhile; // End of the loop.
-			?>
+			endwhile; 
+			?
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+		</main>
+	</div> -->
 
 <?php
 get_sidebar();
