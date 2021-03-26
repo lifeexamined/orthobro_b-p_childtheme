@@ -41,8 +41,8 @@ if ( $arr_posts->have_posts() ) :
 					<div class="post-grid" style="background: url( '<?php echo get_the_post_thumbnail_url(); ?>');"></div>
 						<figcaption>
 							<h3><?php the_title(); ?></h3>
-							<p><?php the_excerpt(); ?></p>
-						</figcaption>
+							<br>
+							<?php the_excerpt(); ?>
 				</figure>
 			</a>
 		</div>
