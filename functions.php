@@ -756,13 +756,13 @@ function blossom_pin_footer_bottom(){ ?>
             <div class="site-info">            
             <?php
                 blossom_pin_get_footer_copyright();
-                esc_html_e( ' Blossom PinIt | Developed By ', 'blossom-pinit' );
-                echo '<a href="' . esc_url( 'https://blossomthemes.com/' ) .'" rel="nofollow" target="_blank">'. esc_html__( 'Blossom Themes', 'blossom-pinit' ) . '</a>.';
+                // esc_html_e( ' Blossom PinIt | Developed By ', 'blossom-pinit' );
+                // echo '<a href="' . esc_url( 'https://blossomthemes.com/' ) .'" rel="nofollow" target="_blank">'. esc_html__( 'Blossom Themes', 'blossom-pinit' ) . '</a>.';
                 
-                printf( esc_html__( ' Powered by %s', 'blossom-pinit' ), '<a href="'. esc_url( __( 'https://wordpress.org/', 'blossom-pinit' ) ) .'" target="_blank">WordPress</a> . ' );
-                if ( function_exists( 'the_privacy_policy_link' ) ) {
-                    the_privacy_policy_link();
-                }
+                // printf( esc_html__( ' Powered by %s', 'blossom-pinit' ), '<a href="'. esc_url( __( 'https://wordpress.org/', 'blossom-pinit' ) ) .'" target="_blank">WordPress</a> . ' );
+                // if ( function_exists( 'the_privacy_policy_link' ) ) {
+                //     the_privacy_policy_link();
+                // }
             ?>               
             </div>
             <?php blossom_pin_secondary_navigation(); ?>
@@ -784,6 +784,11 @@ function orthobro_widgets_init(){
             'name'        => __( 'Header', 'blossom-pin' ),
             'id'          => 'header-two', 
             'description' => __( 'Add header two widgets here.', 'blossom-pin' ),
+        ),
+        'header-two'=> array(
+            'name'        => __( 'Header', 'blossom-pin' ),
+            'id'          => 'header-three', 
+            'description' => __( 'Add header three widgets here.', 'blossom-pin' ),
         )
     );
     
@@ -804,6 +809,14 @@ function orthobro_widgets_init(){
     		'before_title'  => '<h2 class="widget-title" itemprop="name">',
     		'after_title'   => '</h2>',
     	) );
+        register_sidebar( array(
+    		'name'          => 'Header Widget Area 3',
+    		'id'            => 'header-three',
+    		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+    		'after_widget'  => '</section>',
+    		'before_title'  => '<h2 class="widget-title" itemprop="name">',
+    		'after_title'   => '</h2>',
+    	) );
     }
 }
 add_action( 'widgets_init', 'orthobro_widgets_init' );
@@ -815,6 +828,7 @@ add_action( 'widgets_init', 'orthobro_widgets_init' );
  * element when on single views.
  */
 add_image_size( 'post-image-custom', 627, 250, array( 'top', 'center') ); //300 pixels wide (and unlimited height)
+add_image_size( 'listnail', 50, 50, true );
 
 // require get_template_directory() . '/inc/template-functions.php';
 
@@ -856,9 +870,16 @@ function blossom_pin_post_thumbnail() {
 }
 
 /**
- * Filter the except length to 100 words.
+ * Enalbe Custom Shortcodes.
  *
  */
-add_filter( 'excerpt_length', function($length) {
-    return 100;
-} );
+// include('custom-shortcodes.php');
+
+add_filter( 'image_size_names_choose', 'my_custom_sizes' );
+ 
+function my_custom_sizes( $sizes ) {
+    return array_merge( $sizes, array(
+        'post-image-custom' => __( 'Post Image Custom' ),
+        'listnail' => __( 'List Thumbnail' ),
+    ) );
+}

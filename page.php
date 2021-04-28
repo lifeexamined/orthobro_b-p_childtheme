@@ -14,6 +14,10 @@
 
 get_header(); 
 ?>
+   
+   <?php
+//    echo $myposts[0]->body;
+?>
 
 		<main id="main" class="site-main">
 
