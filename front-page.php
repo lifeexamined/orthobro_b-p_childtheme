@@ -38,7 +38,7 @@ if ( $arr_posts->have_posts() ) :
 		<div class="news post-grid-wrapper">
 			<a href="<?php the_permalink(); ?>">
 				<figure class="article">
-					<div class="post-grid" style="background: url( '<?php echo get_the_post_thumbnail_url(); ?>');"></div>
+					<div class="post-grid" style="background: url( '<?php echo get_the_post_thumbnail_url(); ?>'); background-position: center;"></div>
 						<figcaption>
 							<h3><?php the_title(); ?></h3>
 							<br>
@@ -79,29 +79,42 @@ endif;
 
 </div>
 
-<?php if ( is_active_sidebar( 'header-two' ) ) : ?>
-	<article class="page"><div class="entry-content"><h2><?php the_title(); ?></h2></div></article>
-	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
-		<?php dynamic_sidebar( 'header-two' ); ?>
-	</div><!-- #primary-sidebar -->
-<?php endif; ?>
+	<main id="main" class="site-main">
+		
+		<div class="single-page-header">
+    		<h1 class="single-page-title"><?php the_title(); ?></h1>
+    	</div>
+		
+		<?php if ( is_active_sidebar( 'header-two' ) ) : ?> <?php if ( is_active_sidebar( 'header-three' ) ) : ?>
 
-		<!-- <main id="main" class="site-main">
+		<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
+			<?php dynamic_sidebar( 'header-two' ); ?>
+		</div>
 
-			php
+		<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
+
+			<?php dynamic_sidebar( 'header-three' ); ?>
+
+		</div>
+
+		<?php endif; ?> <?php endif; ?>
+
+			<?php
 			while ( have_posts() ) : the_post();
 
-				get_template_part( 'template-parts/content', 'page' );
+				get_template_part( 'template-parts/content', 'front' );
 
-
+				// /**
+                //  * Comment Template
+                //  * 
+                //  * @hooked blossom_pin_comment
+                // */
                 do_action( 'blossom_pin_after_page_content' );
 
-			endwhile; 
-			?
+			endwhile; // End of the loop.
+			?>
 
-		</main>
-	</div> -->
-
+		</main><!-- #main -->
 <?php
 get_sidebar();
 get_footer();

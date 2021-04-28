@@ -2,7 +2,7 @@
 Theme Name: Brotherhood of St. Eustace Theme
 Author: Brotherhood of St. Eustace
 Description: Brotherhood of St. Eustace Theme (+ git)
-Version: 1.1
+Version: 1.5
 Template: blossom-pin
 Requires PHP: 5.6
 Tags: custom-header, custom-menu
@@ -613,7 +613,24 @@ a:hover{
     flex-direction: column;
 }
 
+.subscription-widget {
+  display: flex;
+  flex-direction: column !important;
+  justify-content: center;
+  align-items: center;
 }
+
+.subscription-widget > section {
+  width: 100% !important;
+}
+
+.subscription-margin {
+  width: 100% !important;
+}
+
+}
+
+
 
  /*======================================
  Post Styles
@@ -822,7 +839,7 @@ h2 span {
  Responsive Highlight Cards
  =====================================*/
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 800px){
 
     .abs,
 h2:after,
@@ -1018,5 +1035,92 @@ h2 span {
   opacity: 1;
   transform: none;
 }
+
+}
+
+a.custom-logo-link {
+  pointer-events: none;
+}
+
+
+/*======================================
+ BlossomPin Newsletter
+ =====================================*/
+
+/* .blossomthemes-email-newsletter-wrapper {
+
+  background: url("http://localhost/wordpress/wp-content/uploads/2021/04/bgtexture2.jpg") !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+
+}
+
+.blossomthemes-email-newsletter-wrapper form input[type=text] {
+    background-color: white;
+}
+*/
+
+.blossomthemes-email-newsletter-wrapper form input[type=submit] {
+    color: White !important;
+    background-color: black;
+}
+
+.blossomthemes-email-newsletter-wrapper form input[type=text] {
+   border-color: rgba(197, 197, 197, 0.5) !important;
+	  color: black !important;
+}
+
+.text-holder > * {
+  color: black !important;
+}
+
+.blossomthemes-email-newsletter-wrapper.bg-img .text-holder h3 {
+  text-align: center;
+}
+
+.blossomthemes-email-newsletter-wrapper.bg-img .text-holder h3:after {
+  background-color: rgb(221, 156, 57) !important;
+}
+
+.blossomthemes-email-newsletter-wrapper.bg-img.has-overlay:before {
+  background: rgba(255, 255, 255, 0.5) !important;
+  border: solid;
+  border-width: 1px;
+  border-color: rgba(197, 197, 197, 0.5) !important;
+  margin: 0 !important;
+}
+
+.blossomthemes-email-newsletter-wrapper.bg-img.no-overlay:before {
+  margin: 0 !important;
+}
+
+.blossomthemes-email-newsletter-wrapper > form > input::placeholder {
+  color: gray !important;
+}
+
+.blossomthemes-email-newsletter-wrapper form {
+  border: 1px solid rgb(197 197 197 / 50%) !important;
+}
+
+/* article.page {
+  margin-top: 20px;
+} */
+
+.subscription-widget {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 24px 0px 8px 0px;
+}
+
+.subscription-widget > section {
+  width: 50%;
+}
+
+
+.subscription-margin {
+  margin: 10px 10px 0px 10px;
+  /* width: 50%; */
 
 }
